@@ -1,0 +1,137 @@
+!<arch>
+__.PKGDEF       0           0     0     644     13896     `
+go object linux amd64 go1.6.2 X:none
+build id "d0f41ec34e39eb676b42f4340db6cdddc9867c9b"
+
+$$
+package entries
+	import trib "trib"
+	import triblab "triblab"
+	import time "time" // indirect
+	type @"time".zone struct { @"time".name string; @"time".offset int; @"time".isDST bool }
+	type @"time".zoneTrans struct { @"time".when int64; @"time".index uint8; @"time".isstd bool; @"time".isutc bool }
+	type @"time".Location struct { @"time".name string; @"time".zone []@"time".zone; @"time".tx []@"time".zoneTrans; @"time".cacheStart int64; @"time".cacheEnd int64; @"time".cacheZone *@"time".zone }
+	func (@"time".lÂ·2 *@"time".Location "esc:0x22") String () (? string)
+	func (@"time".lÂ·2 *@"time".Location "esc:0x1") @"time".firstZoneUsed () (? bool)
+	func (@"time".lÂ·2 *@"time".Location "esc:0x12") @"time".get () (? *@"time".Location)
+	func (@"time".lÂ·6 *@"time".Location "esc:0x32") @"time".lookup (@"time".secÂ·7 int64) (@"time".nameÂ·1 string, @"time".offsetÂ·2 int, @"time".isDSTÂ·3 bool, @"time".startÂ·4 int64, @"time".endÂ·5 int64)
+	func (@"time".lÂ·2 *@"time".Location "esc:0x1") @"time".lookupFirstZone () (? int)
+	func (@"time".lÂ·4 *@"time".Location "esc:0x1") @"time".lookupName (@"time".nameÂ·5 string "esc:0x1", @"time".unixÂ·6 int64) (@"time".offsetÂ·1 int, @"time".isDSTÂ·2 bool, @"time".okÂ·3 bool)
+	type @"time".Duration int64
+	func (@"time".dÂ·2 @"time".Duration) Hours () (? float64) { var @"time".hourÂ·3 @"time".Duration; ; @"time".hourÂ·3 = @"time".dÂ·2 / @"time".Duration(0x34630b8a000); var @"time".nsecÂ·4 @"time".Duration; ; @"time".nsecÂ·4 = @"time".dÂ·2 % @"time".Duration(0x34630b8a000); return float64(@"time".hourÂ·3) + float64(@"time".nsecÂ·4) * float64(8190022623310637111963488201822504381538623676021880892417778544696899264837610290203272971060556344039023584360473938041055625214280336402169897364226048p-553) }
+	func (@"time".dÂ·2 @"time".Duration) Minutes () (? float64) { var @"time".minÂ·3 @"time".Duration; ; @"time".minÂ·3 = @"time".dÂ·2 / @"time".Duration(0xdf8475800); var @"time".nsecÂ·4 @"time".Duration; ; @"time".nsecÂ·4 = @"time".dÂ·2 % @"time".Duration(0xdf8475800); return float64(@"time".minÂ·3) + float64(@"time".nsecÂ·4) * float64(7678146209353722106395056769533233877065564876941352542109479049699919628723768656821910653339403201031675627614471533358284117434246264392176261853609984p-547) }
+	func (@"time".dÂ·2 @"time".Duration) Nanoseconds () (? int64) { return int64(@"time".dÂ·2) }
+	func (@"time".dÂ·2 @"time".Duration) Seconds () (? float64) { var @"time".secÂ·3 @"time".Duration; ; @"time".secÂ·3 = @"time".dÂ·2 / @"time".Duration(0x3b9aca00); var @"time".nsecÂ·4 @"time".Duration; ; @"time".nsecÂ·4 = @"time".dÂ·2 % @"time".Duration(0x3b9aca00); return float64(@"time".secÂ·3) + float64(@"time".nsecÂ·4) * float64(7198262071269114660816079141112770740375861891461678802759824945047098083990024106014198994535558872472104883612039846078596891298747423852523262413111296p-541) }
+	func (@"time".dÂ·2 @"time".Duration) String () (? string)
+	type @"time".Month int
+	func (@"time".mÂ·2 @"time".Month) String () (? string) { return @"time".months[@"time".mÂ·2 - @"time".Month(0x1)] }
+	type @"time".Weekday int
+	func (@"time".dÂ·2 @"time".Weekday) String () (? string) { return @"time".days[@"time".dÂ·2] }
+	type @"time".Time struct { @"time".sec int64; @"time".nsec int32; @"time".loc *@"time".Location }
+	func (@"time".tÂ·2 @"time".Time "esc:0x12") Add (@"time".dÂ·3 @"time".Duration) (? @"time".Time) { @"time".tÂ·2.@"time".sec += int64(@"time".dÂ·3 / @"time".Duration(0x3b9aca00)); var @"time".nsecÂ·4 int32; ; @"time".nsecÂ·4 = int32(@"time".tÂ·2.@"time".nsec) + int32(@"time".dÂ·3 % @"time".Duration(0x3b9aca00)); if @"time".nsecÂ·4 >= int32(0x3b9aca00) { @"time".tÂ·2.@"time".sec++; @"time".nsecÂ·4 -= int32(0x3b9aca00) } else { if @"time".nsecÂ·4 < int32(0x0) { @"time".tÂ·2.@"time".sec--; @"time".nsecÂ·4 += int32(0x3b9aca00) } }; @"time".tÂ·2.@"time".nsec = @"time".nsecÂ·4; return @"time".tÂ·2 }
+	func (@"time".tÂ·2 @"time".Time "esc:0x12") AddDate (@"time".yearsÂ·3 int, @"time".monthsÂ·4 int, @"time".daysÂ·5 int) (? @"time".Time)
+	func (@"time".tÂ·2 @"time".Time "esc:0x1") After (@"time".uÂ·3 @"time".Time "esc:0x1") (? bool) { return @"time".tÂ·2.@"time".sec > @"time".uÂ·3.@"time".sec || @"time".tÂ·2.@"time".sec == @"time".uÂ·3.@"time".sec && @"time".tÂ·2.@"time".nsec > @"time".uÂ·3.@"time".nsec }
+	func (@"time".tÂ·2 @"time".Time "esc:0x9") AppendFormat (@"time".bÂ·3 []byte "esc:0x1a", @"time".layoutÂ·4 string "esc:0x9") (? []byte)
+	func (@"time".tÂ·2 @"time".Time "esc:0x1") Before (@"time".uÂ·3 @"time".Time "esc:0x1") (? bool) { return @"time".tÂ·2.@"time".sec < @"time".uÂ·3.@"time".sec || @"time".tÂ·2.@"time".sec == @"time".uÂ·3.@"time".sec && @"time".tÂ·2.@"time".nsec < @"time".uÂ·3.@"time".nsec }
+	func (@"time".tÂ·4 @"time".Time "esc:0x1") Clock () (@"time".hourÂ·1 int, @"time".minÂ·2 int, @"time".secÂ·3 int)
+	func (@"time".tÂ·4 @"time".Time "esc:0x1") Date () (@"time".yearÂ·1 int, @"time".monthÂ·2 @"time".Month, @"time".dayÂ·3 int)
+	func (@"time".tÂ·2 @"time".Time "esc:0x1") Day () (? int)
+	func (@"time".tÂ·2 @"time".Time "esc:0x1") Equal (@"time".uÂ·3 @"time".Time "esc:0x1") (? bool) { return @"time".tÂ·2.@"time".sec == @"time".uÂ·3.@"time".sec && @"time".tÂ·2.@"time".nsec == @"time".uÂ·3.@"time".nsec }
+	func (@"time".tÂ·2 @"time".Time "esc:0x9") Format (@"time".layoutÂ·3 string "esc:0x9") (? string)
+	func (@"time".tÂ·2 *@"time".Time "esc:0x1") GobDecode (@"time".dataÂ·3 []byte "esc:0x1") (? error)
+	func (@"time".tÂ·3 @"time".Time "esc:0x1") GobEncode () (? []byte, ? error)
+	func (@"time".tÂ·2 @"time".Time "esc:0x1") Hour () (? int)
+	func (@"time".tÂ·3 @"time".Time "esc:0x1") ISOWeek () (@"time".yearÂ·1 int, @"time".weekÂ·2 int)
+	func (@"time".tÂ·2 @"time".Time "esc:0x12") In (@"time".locÂ·3 *@"time".Location "esc:0x12") (? @"time".Time)
+	func (@"time".tÂ·2 @"time".Time "esc:0x1") IsZero () (? bool) { return @"time".tÂ·2.@"time".sec == int64(0x0) && @"time".tÂ·2.@"time".nsec == int32(0x0) }
+	func (@"time".tÂ·2 @"time".Time "esc:0x12") Local () (? @"time".Time) { @"time".tÂ·2.@"time".loc = @"time".Local; return @"time".tÂ·2 }
+	func (@"time".tÂ·2 @"time".Time "esc:0x12") Location () (? *@"time".Location) { var @"time".lÂ·3 *@"time".Location; ; @"time".lÂ·3 = @"time".tÂ·2.@"time".loc; if @"time".lÂ·3 == nil { @"time".lÂ·3 = @"time".UTC }; return @"time".lÂ·3 }
+	func (@"time".tÂ·3 @"time".Time "esc:0x1") MarshalBinary () (? []byte, ? error)
+	func (@"time".tÂ·3 @"time".Time "esc:0x9") MarshalJSON () (? []byte, ? error)
+	func (@"time".tÂ·3 @"time".Time "esc:0x9") MarshalText () (? []byte, ? error)
+	func (@"time".tÂ·2 @"time".Time "esc:0x1") Minute () (? int)
+	func (@"time".tÂ·2 @"time".Time "esc:0x1") Month () (? @"time".Month)
+	func (@"time".tÂ·2 @"time".Time "esc:0x1") Nanosecond () (? int) { return int(@"time".tÂ·2.@"time".nsec) }
+	func (@"time".tÂ·2 @"time".Time "esc:0x12") Round (@"time".dÂ·3 @"time".Duration) (? @"time".Time)
+	func (@"time".tÂ·2 @"time".Time "esc:0x1") Second () (? int)
+	func (@"time".tÂ·2 @"time".Time "esc:0x9") String () (? string)
+	func (@"time".tÂ·2 @"time".Time "esc:0x1") Sub (@"time".uÂ·3 @"time".Time "esc:0x1") (? @"time".Duration)
+	func (@"time".tÂ·2 @"time".Time "esc:0x12") Truncate (@"time".dÂ·3 @"time".Duration) (? @"time".Time)
+	func (@"time".tÂ·2 @"time".Time "esc:0x12") UTC () (? @"time".Time) { @"time".tÂ·2.@"time".loc = @"time".UTC; return @"time".tÂ·2 }
+	func (@"time".tÂ·2 @"time".Time "esc:0x1") Unix () (? int64) { return @"time".tÂ·2.@"time".sec + int64(-0xe7791f700) }
+	func (@"time".tÂ·2 @"time".Time "esc:0x1") UnixNano () (? int64) { return (@"time".tÂ·2.@"time".sec + int64(-0xe7791f700)) * int64(0x3b9aca00) + int64(@"time".tÂ·2.@"time".nsec) }
+	func (@"time".tÂ·2 *@"time".Time "esc:0x1") UnmarshalBinary (@"time".dataÂ·3 []byte "esc:0x1") (? error)
+	func (@"time".tÂ·2 *@"time".Time "esc:0x1") UnmarshalJSON (@"time".dataÂ·3 []byte "esc:0x1") (@"time".errÂ·1 error)
+	func (@"time".tÂ·2 *@"time".Time "esc:0x1") UnmarshalText (@"time".dataÂ·3 []byte "esc:0x1") (@"time".errÂ·1 error)
+	func (@"time".tÂ·2 @"time".Time "esc:0x1") Weekday () (? @"time".Weekday)
+	func (@"time".tÂ·2 @"time".Time "esc:0x1") Year () (? int)
+	func (@"time".tÂ·2 @"time".Time "esc:0x1") YearDay () (? int)
+	func (@"time".tÂ·3 @"time".Time "esc:0x32") Zone () (@"time".nameÂ·1 string, @"time".offsetÂ·2 int)
+	func (@"time".tÂ·2 @"time".Time "esc:0x1") @"time".abs () (? uint64)
+	func (@"time".tÂ·5 @"time".Time "esc:0x1") @"time".date (@"time".fullÂ·6 bool) (@"time".yearÂ·1 int, @"time".monthÂ·2 @"time".Month, @"time".dayÂ·3 int, @"time".ydayÂ·4 int)
+	func (@"time".tÂ·4 @"time".Time "esc:0x32") @"time".locabs () (@"time".nameÂ·1 string, @"time".offsetÂ·2 int, @"time".absÂ·3 uint64)
+	type @"trib".Trib struct { User string; Message string; Time @"time".Time; Clock uint64 }
+	type @"trib".Server interface { Follow(@"trib".who string, @"trib".whom string) (? error); Following(@"trib".who string) (? []string, ? error); Home(@"trib".user string) (? []*@"trib".Trib, ? error); IsFollowing(@"trib".who string, @"trib".whom string) (? bool, ? error); ListUsers() (? []string, ? error); Post(@"trib".who string, @"trib".post string, @"trib".clock uint64) (? error); SignUp(@"trib".user string) (? error); Tribs(@"trib".user string) (? []*@"trib".Trib, ? error); Unfollow(@"trib".who string, @"trib".whom string) (? error) }
+	func @"".MakeFrontSingle (@"".backÂ·2 string) (? @"trib".Server) { return @"triblab".NewFront(@"triblab".NewBinClient(([]string{ int(0x0):@"".backÂ·2 }))) }
+	type @"trib".Pattern struct { Prefix string; Suffix string }
+	func (@"trib".pÂ·2 *@"trib".Pattern "esc:0x1") Match (@"trib".kÂ·3 string "esc:0x1") (? bool) { var @"trib".retÂ·4 bool; ; @"trib".retÂ·4 = @"strings".HasPrefix(@"trib".kÂ·3, @"trib".pÂ·2.Prefix); @"trib".retÂ·4 = @"trib".retÂ·4 && @"strings".HasSuffix(@"trib".kÂ·3, @"trib".pÂ·2.Suffix); return @"trib".retÂ·4 }
+	type @"trib".List struct { L []string }
+	type @"trib".KeyValue struct { Key string; Value string }
+	type @"trib".Storage interface { Clock(@"trib".atLeast uint64, @"trib".ret *uint64) (? error); Get(@"trib".key string, @"trib".value *string) (? error); Keys(@"trib".p *@"trib".Pattern, @"trib".list *@"trib".List) (? error); ListAppend(@"trib".kv *@"trib".KeyValue, @"trib".succ *bool) (? error); ListGet(@"trib".key string, @"trib".list *@"trib".List) (? error); ListKeys(@"trib".p *@"trib".Pattern, @"trib".list *@"trib".List) (? error); ListRemove(@"trib".kv *@"trib".KeyValue, @"trib".n *int) (? error); Set(@"trib".kv *@"trib".KeyValue, @"trib".succ *bool) (? error) }
+	func @"".ServeBackSingle (@"".addrÂ·2 string, @"".sÂ·3 @"trib".Storage, @"".readyÂ·4 chan<- bool) (? error)
+	func @"".init ()
+	var @"time".months [12]string
+	var @"time".days [7]string
+	var @"time".Local *@"time".Location
+	var @"time".UTC *@"time".Location
+	type @"trib".BinStorage interface { Bin(@"trib".name string) (? @"trib".Storage) }
+	func @"triblab".NewFront (@"triblab".sÂ·2 @"trib".BinStorage) (? @"trib".Server) { return (&@"triblab".Server{ BS:@"triblab".sÂ·2 }) }
+	func @"triblab".NewBinClient (@"triblab".backsÂ·2 []string) (? @"trib".BinStorage) { return (&@"triblab".binClient{ @"triblab".backs:@"triblab".backsÂ·2 }) }
+	import strings "strings" // indirect
+	func @"strings".HasPrefix (@"strings".sÂ·2 string "esc:0x1", @"strings".prefixÂ·3 string "esc:0x1") (? bool) { return len(@"strings".sÂ·2) >= len(@"strings".prefixÂ·3) && @"strings".sÂ·2[int(0x0):len(@"strings".prefixÂ·3)] == @"strings".prefixÂ·3 }
+	func @"strings".HasSuffix (@"strings".sÂ·2 string "esc:0x1", @"strings".suffixÂ·3 string "esc:0x1") (? bool) { return len(@"strings".sÂ·2) >= len(@"strings".suffixÂ·3) && @"strings".sÂ·2[len(@"strings".sÂ·2) - len(@"strings".suffixÂ·3):] == @"strings".suffixÂ·3 }
+	import sync "sync" // indirect
+	type @"sync".Mutex struct { @"sync".state int32; @"sync".sema uint32 }
+	func (@"sync".mÂ·1 *@"sync".Mutex) Lock ()
+	func (@"sync".mÂ·1 *@"sync".Mutex) Unlock ()
+	type @"triblab".Server struct { @"triblab".lock @"sync".Mutex; BS @"trib".BinStorage }
+	func (@"triblab".selfÂ·2 *@"triblab".Server) Follow (@"triblab".whoÂ·3 string, @"triblab".whomÂ·4 string) (? error)
+	func (@"triblab".selfÂ·3 *@"triblab".Server) Following (@"triblab".whoÂ·4 string) (? []string, ? error)
+	func (@"triblab".selfÂ·3 *@"triblab".Server) Home (@"triblab".userÂ·4 string) (? []*@"trib".Trib, ? error)
+	func (@"triblab".selfÂ·3 *@"triblab".Server) IsFollowing (@"triblab".whoÂ·4 string, @"triblab".whomÂ·5 string) (? bool, ? error)
+	func (@"triblab".selfÂ·3 *@"triblab".Server) ListUsers () (? []string, ? error)
+	func (@"triblab".selfÂ·2 *@"triblab".Server) Post (@"triblab".userÂ·3 string, @"triblab".postÂ·4 string, @"triblab".cÂ·5 uint64) (? error)
+	func (@"triblab".selfÂ·2 *@"triblab".Server) SignUp (@"triblab".userÂ·3 string) (? error)
+	func (@"triblab".selfÂ·3 *@"triblab".Server) Tribs (@"triblab".userÂ·4 string) (? []*@"trib".Trib, ? error)
+	func (@"triblab".selfÂ·2 *@"triblab".Server "esc:0x9") Unfollow (@"triblab".whoÂ·3 string, @"triblab".whomÂ·4 string) (? error)
+	func (@"triblab".selfÂ·2 *@"triblab".Server "esc:0x9") @"triblab".findUser (@"triblab".userÂ·3 string "esc:0x1") (? bool)
+	func (@"triblab".selfÂ·3 *@"triblab".Server "esc:0x9") @"triblab".following (@"triblab".whoÂ·4 string) (? []string, ? error)
+	func (@"triblab".selfÂ·2 *@"triblab".Server "esc:0x9") @"triblab".getClock (@"triblab".userÂ·3 string, @"triblab".clockÂ·4 uint64) (? uint64)
+	func (@"triblab".selfÂ·3 *@"triblab".Server "esc:0x9") @"triblab".isFollowing (@"triblab".whoÂ·4 string, @"triblab".whomÂ·5 string) (? bool, ? error)
+	func (@"triblab".selfÂ·3 *@"triblab".Server "esc:0x9") @"triblab".listUser () (? []string, ? error)
+	type @"triblab".binClient struct { @"triblab".backs []string }
+	func (@"triblab".selfÂ·2 *@"triblab".binClient "esc:0x22") Bin (@"triblab".nameÂ·3 string) (? @"trib".Storage)
+
+$$
+_go_.o          0           0     0     644     8407      `
+go object linux amd64 go1.6.2 X:none
+
+!
+  go13ldtrib.atriblab.a ş$"".MakeFrontSingle  €
+  €
+dH‹%    HD$àH;A†\  Hì    1ÛH‰œ$¸   H‰œ$À   H    H‰$è    H‹D$Hƒø „  HÇ„$      HÇ„$˜      H‰„$ˆ   H‹¬$°   H‰hH‹¬$¨   €=     …Á  H‰(H‰D$pH‹œ$   H‰\$xH‹œ$˜   H‰œ$€   1ÛH‰\$@H‰\$HH    H‰$è    H‹D$H‰D$(H‹l$xH‰hH‹¬$€   H‰hH‹l$p€=     …7  H‰(H‰D$(H‹    1íH9è„ë   H‹L$(H‰D$@H‰L$HH‰D$`H‰D$PH‰L$hH‰L$X1ÛH‰\$0H‰\$8H    H‰$è    H‹D$1í‰(‰hH‰hH‰hH‰D$ H‹l$PH‰hH‹l$X€=     ucH‰hH‰D$ H‹    1íH9ètH‹L$ H‰„$¸   H‰Œ$À   HÄ    ÃH    H‰$H    H‰\$H    H‰\$è    H‹D$ë´L@L‰$H‰l$è    H‹D$ ëˆH    H‰$H    H‰\$H    H‰\$è    H‹D$éãşÿÿH‰$H‰l$è    H‹D$(é´şÿÿH‰$H‰l$è    H‹„$ˆ   é'şÿÿ‰ éÜıÿÿè    é‚ıÿÿÌÌ0
+      h  type.[1]string   z  "runtime.newobject   Œ (runtime.writeBarrier   Š  ,type.triblab.binClient   œ  "runtime.newobject   ğ (runtime.writeBarrier   œ  Tgo.itab.*triblab.binClient.trib.BinStorage     &type.triblab.Server   °  "runtime.newobject   Š (runtime.writeBarrier   °  Fgo.itab.*triblab.Server.trib.Server   †  (type.*triblab.Server   œ   type.trib.Server   ´  Fgo.itab.*triblab.Server.trib.Server   È   runtime.typ2Itab   ú  .runtime.writebarrierptr   –  .type.*triblab.binClient   ¬  (type.trib.BinStorage   Ä  Tgo.itab.*triblab.binClient.trib.BinStorage   Ø   runtime.typ2Itab   ˆ	  .runtime.writebarrierptr   ¸	  .runtime.writebarrierptr   ê	  0runtime.morestack_noctxt   @À  "".autotmp_0010  type.*uint8 "".autotmp_0008 ÿ(type.*triblab.Server "".autotmp_0007  (type.trib.BinStorage "".autotmp_0005 (type.trib.BinStorage "".autotmp_0004 ï.type.*triblab.binClient "".autotmp_0002 /type.[]string "".autotmp_0001  (type.*triblab.Server "".autotmp_0000  .type.*triblab.binClient "".~r0 ß type.trib.Server triblab.sÂ·2 Ÿ(type.trib.BinStorage "".~r0 ¿(type.trib.BinStorage  triblab.backsÂ·2 _type.[]string "".~r1   type.trib.Server "".back  type.string "À ¿À´¿ € 1Ã $ <‘ŠŒH0% TgclocalsÂ·1ae62cce473f17806b5677919601c86f TgclocalsÂ·8fd0816ea73f157a9b5eea232c8ce7cc   n/home/cse223b_zhw197/gopath/src/trib/entries/entries.goş$"".ServeBackSingle      dH‹%    H;a†ë   Hƒì 1ÛH‰\$PH‰\$XH    H‰$è    H‹D$H‰D$H‹l$0H‰hH‹l$(€=     …   H‰(H‹l$8H‰hH‹l$@€=     u[H‰hHƒø tMH‹l$H€=     u&H‰h H‰$è    H‹L$H‹D$H‰L$PH‰D$XHƒÄ ÃL@ L‰$H‰l$è    H‹D$ëÅ‰ ë¯L@L‰$H‰l$è    H‹D$ëH‰$H‰l$è    H‹D$é]ÿÿÿè    éøşÿÿÌÌÌÌÌÌÌÌ
+      L  (type.trib.BackConfig   ^  "runtime.newobject   š (runtime.writeBarrier   Ö (runtime.writeBarrier   † (runtime.writeBarrier   ¦  "triblab.ServeBack   ü  .runtime.writebarrierptr   ¶  .runtime.writebarrierptr   à  .runtime.writebarrierptr   ş  0runtime.morestack_noctxt   p@  
+"".autotmp_0014 *type.*trib.BackConfig "".~r3 Ptype.error "".ready @ type.chan<- bool "".s  "type.trib.Storage "".addr  type.string @˜?@N?  $#k"5  .S TgclocalsÂ·e70cb141eb7710b4ba1fc4c299976dae TgclocalsÂ·0c8aa8e80191a30eac23f1a218103f16   n/home/cse223b_zhw197/gopath/src/trib/entries/entries.goş"".init      dH‹%    H;av9¶    €û t¶    €ûuÃè    Æ    è    è    Æ    Ãè    ë±Ì
+      $  "".initdoneÂ·   <  "".initdoneÂ·   R  "runtime.throwinit   b "".initdoneÂ·   n  trib.init   x  triblab.init   „ "".initdoneÂ·   ’  0runtime.morestack_noctxt        P P 4P 
+ (( TgclocalsÂ·33cdeccccebe80329f1fdbee7f5874cb TgclocalsÂ·33cdeccccebe80329f1fdbee7f5874cb   n/home/cse223b_zhw197/gopath/src/trib/entries/entries.goş(type..hash.[1]string     dH‹%    H;avpHƒì(H‹L$81ÀHÇD$   H‹l$H9è}DH‰D$ H‹\$0Hƒû t>H‰ÅHÁåHëH‰$H‰L$8H‰L$è    H‹L$H‹D$ HÿÀH‹l$H9è|¼H‰L$@HƒÄ(Ã‰ë¾è    éwÿÿÿÌÌÌÌÌÌÌ
+      ¬  runtime.strhash   €  0runtime.morestack_noctxt   0P  
+"".autotmp_0016 type.int "".autotmp_0015 type.int "".~r2  type.uintptr "".h type.uintptr "".p  type.*[1]string PgOPO   
+ U; TgclocalsÂ·0b86ef39f3fed835f14ba5f4d7c62fa2 TgclocalsÂ·33cdeccccebe80329f1fdbee7f5874cb   n/home/cse223b_zhw197/gopath/src/trib/entries/entries.goş$type..eq.[1]string à  àdH‹%    H;a†Î   HƒìX1ÀHÇD$(   H‹l$(H9è’   H‰D$0H‹\$`Hƒû „–   H‰ÅHÁåHëH‹3H‹KH‹\$hHƒû tvH‰ÅHÁåHëH‹H‹CH9ÁuVH‰t$HH‰4$H‰L$PH‰L$H‰T$8H‰T$H‰D$@H‰D$è    ¶\$ €û t H‹D$0HÿÀH‹l$(H9èŒnÿÿÿÆD$pHƒÄXÃÆD$p HƒÄXÃ‰ë†‰écÿÿÿè    éÿÿÿÌÌÌÌÌ
+      ¼   runtime.eqstring   Ä  0runtime.morestack_noctxt   0°  "".autotmp_0020 ?type.string "".autotmp_0019 type.string "".autotmp_0018 _type.int "".autotmp_0017 Otype.int "".~r2  type.bool "".q type.*[1]string "".p  type.*[1]string ,°´¯°	¯°¯ ğ ğ  S TgclocalsÂ·3bb21ca8fe1d99a3e492463bd711418a TgclocalsÂ·a8eabfc4a4514ed6b3b0c61e9680e440   n/home/cse223b_zhw197/gopath/src/trib/entries/entries.goş>Tgo.itab.*triblab.binClient.trib.BinStorage     ş>Fgo.itab.*triblab.Server.trib.Server     şTgclocalsÂ·8fd0816ea73f157a9b5eea232c8ce7cc @  @                    À       şTgclocalsÂ·1ae62cce473f17806b5677919601c86f @  @                         şTgclocalsÂ·0c8aa8e80191a30eac23f1a218103f16                   şTgclocalsÂ·e70cb141eb7710b4ba1fc4c299976dae                  şTgclocalsÂ·33cdeccccebe80329f1fdbee7f5874cb           şTgclocalsÂ·33cdeccccebe80329f1fdbee7f5874cb           ş>"".initdoneÂ·  type.uint8   ş*"".MakeFrontSingleÂ·f              $"".MakeFrontSingle   ş*"".ServeBackSingleÂ·f              $"".ServeBackSingle   ş"".initÂ·f              "".init   ş"runtime.gcbits.01    ş0go.string.hdr."[]string"                       (go.string."[]string"   ş(go.string."[]string"    []string  ştype.[]string                 Ó¨ó
+                                                 
+0   runtime.algarray   @  "runtime.gcbits.01   P  0go.string.hdr."[]string"   p  ,go.weak.type.*[]string   €  type.string   ş:go.typelink.[]string	[]string              type.[]string   şTgclocalsÂ·33cdeccccebe80329f1fdbee7f5874cb           şTgclocalsÂ·0b86ef39f3fed835f14ba5f4d7c62fa2             şTgclocalsÂ·a8eabfc4a4514ed6b3b0c61e9680e440              şTgclocalsÂ·3bb21ca8fe1d99a3e492463bd711418a             ş0type..hashfunc.[1]string              (type..hash.[1]string   ş,type..eqfunc.[1]string              $type..eq.[1]string   ş&type..alg.[1]string                        0type..hashfunc.[1]string     ,type..eqfunc.[1]string   ş2go.string.hdr."[1]string"             	          *go.string."[1]string"   ş*go.string."[1]string"    [1]string  ştype.[1]string °  °              Ä¸b                                                                 0  &type..alg.[1]string   @  "runtime.gcbits.01   P  2go.string.hdr."[1]string"   p  .go.weak.type.*[1]string   €  type.string     type.[]string   ş>go.typelink.[1]string	[1]string              type.[1]string   ş4go.string.hdr."*[1]string"             
+          ,go.string."*[1]string"   ş,go.string."*[1]string"    *[1]string  ştype.*[1]string                 l.!ä 6                                                
+0   runtime.algarray   @  "runtime.gcbits.01   P  4go.string.hdr."*[1]string"   p  0go.weak.type.**[1]string   €  type.[1]string   ş6go.string.hdr."chan<- bool"                       .go.string."chan<- bool"   ş.go.string."chan<- bool"    chan<- bool  ş type.chan<- bool                   ŞC¢ö 2                                                       
+0   runtime.algarray   @  "runtime.gcbits.01   P  6go.string.hdr."chan<- bool"   p  2go.weak.type.*chan<- bool   €  type.bool   şFgo.typelink.chan<- bool	chan<- bool               type.chan<- bool   ş(go.string.hdr."trib"                        go.string."trib"   ş go.string."trib"   
+trib  ş&go.importpath.trib.                        go.string."trib"   ş.go.string.hdr."triblab"                       &go.string."triblab"   ş&go.string."triblab"   triblab  ş,go.importpath.triblab.                       &go.string."triblab"   ş.type..hash.[1]stringÂ·f              (type..hash.[1]string   ş*type..eq.[1]stringÂ·f              $type..eq.[1]string   ÿÿgo13ld 
